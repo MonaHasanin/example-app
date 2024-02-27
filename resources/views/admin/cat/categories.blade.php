@@ -67,8 +67,7 @@
                       @foreach($categories as $category)
                         <tr>
                           <td>{{ $category -> name }}</td>
-                          <td><img src="{{ asset('images/edit.png') }}" alt="Edit"></td>
-                          <td><img src="{{ asset('images/delete.png') }}" alt="Delete"></td>
+                          <td><a href="{{route('editCategory', [$category->id])}}"><img src="{{ asset('images/edit.png') }}" alt="Edit"></a></td>
                         </tr>
                       @endforeach
                       </tbody>

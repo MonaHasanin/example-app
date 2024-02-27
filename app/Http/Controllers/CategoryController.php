@@ -29,11 +29,14 @@ class CategoryController extends Controller
 
     public function edit(string $id)
     {
-        $categories = Category::findOrFail($id);
-        return view('admin.editCategory', compact('categories'));
+        $category = Category::findOrFail($id);
+        return view('admin.cat.editCategory', compact('category'));
     }
     public function update(Request $request , string $id) :RedirectResponse
     {
+        Category::where('id', $id)->update([
+            'category'=>$request->category
+        ]);
         return redirect('categories');
     }
 }
