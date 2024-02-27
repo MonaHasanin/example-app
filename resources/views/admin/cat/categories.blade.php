@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','categories')
+@section('title','Categories')
     @section('content')
         <!-- page content -->
         <div class="right_col" role="main">
@@ -58,13 +58,17 @@
 
 
                       <tbody>
+
+                      @if(session('message'))
+                          <div class="alert alert-success">{{session('message')}}</div>
+                          )
+                      @endif
+
                       @foreach($categories as $category)
                         <tr>
-
                           <td>{{ $category -> name }}</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-
+                          <td><img src="{{ asset('images/edit.png') }}" alt="Edit"></td>
+                          <td><img src="{{ asset('images/delete.png') }}" alt="Delete"></td>
                         </tr>
                       @endforeach
                       </tbody>

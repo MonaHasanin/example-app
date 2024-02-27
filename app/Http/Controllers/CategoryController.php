@@ -17,12 +17,12 @@ class CategoryController extends Controller
     public function create()
     {
         $categories  = Category::all();
-        return view('admin.addCategory', compact('categories'));
+        return view('admin.cat.addCategory', compact('categories'));
     }
     public function store(Request $request) :RedirectResponse
     {
         $category = new Category();
-        $category->name = $category->request;
+        $category->name = $request->input('name');
         $category->save();
         return redirect('categories');
     }

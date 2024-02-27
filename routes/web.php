@@ -12,4 +12,6 @@ Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/addCategory', [CategoryController::class, 'create'])->name('addCategory');
+Route::post('/addCategory', [CategoryController::class, 'store'])->name('addCategory');
 
