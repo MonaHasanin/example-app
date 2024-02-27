@@ -1,4 +1,6 @@
-
+@extends('admin.layout')
+@section('title.edit beverage')
+    @section('content')
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="">
@@ -10,7 +12,7 @@
 						<div class="title_right">
 							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search for...">
+									<input type="text" class="form-control" placeholder="Search for..." />
 									<span class="input-group-btn">
 										<button class="btn btn-default" type="button">Go!</button>
 									</span>
@@ -92,7 +94,7 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<select class="form-control" name="category" id="">
+												<select class="form-control" name="category_id" id="">
 													<option value=" ">Select Category</option>
 													<option value="cat1">Category 1</option>
 													<option value="cat2">Category 2</option>
@@ -116,3 +118,4 @@
 				</div>
 			</div>
 			<!-- /page content -->
+    @endsection

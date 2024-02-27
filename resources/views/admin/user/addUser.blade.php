@@ -1,4 +1,6 @@
-
+@extends('admin.layout')
+@section('title.add user')
+    @section('content')
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<div class="">
@@ -23,7 +25,7 @@
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Edit User</h2>
+									<h2>Add User</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -84,7 +86,7 @@
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
-												<button type="submit" class="btn btn-success">Update</button>
+												<button type="submit" class="btn btn-success">Add</button>
 											</div>
 										</div>
 
@@ -97,3 +99,4 @@
 				</div>
 			</div>
 			<!-- /page content -->
+    @endsection

@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Beverages Admin | Add Beverage</title>
+    <title>
+        @yield('title')
+    </title>
 
     <!-- Bootstrap -->
     <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -179,6 +181,7 @@
         </div>
         <!-- /top navigation -->
 
+        @yield('content')
         <!-- footer content -->
         <footer>
             <div class="pull-right">

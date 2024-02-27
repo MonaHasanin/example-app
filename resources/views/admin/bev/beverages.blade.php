@@ -1,4 +1,6 @@
-
+@extends('admin.layout')
+@section('title.Beverage')
+    @section('content')
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -92,3 +94,4 @@
           </div>
         </div>
         <!-- /page content -->
+    @endsection
