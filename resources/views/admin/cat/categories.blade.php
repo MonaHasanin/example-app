@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title.categories')
+@section('title','categories')
     @section('content')
         <!-- page content -->
         <div class="right_col" role="main">
@@ -58,17 +58,15 @@
 
 
                       <tbody>
+                      @foreach($categories as $category)
                         <tr>
-                          <td>Category</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        <tr>
-                          <td>Category</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
 
+                          <td>{{ $category -> name }}</td>
+                          <td><img src="./images/edit.png" alt="Edit"></td>
+                          <td><img src="./images/delete.png" alt="Delete"></td>
+
+                        </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   </div>

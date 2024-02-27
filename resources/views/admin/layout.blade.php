@@ -66,25 +66,25 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('users')}}">Users List</a></li>
-                                    <li><a href="{{route('addUser')}}">Add User</a></li>
+                                    {{-- <li><a href="{{route('users')}}">Users List</a></li> --}}
+                                    {{-- <li><a href="{{route('addUser')}}">Add User</a></li> --}}
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('addCategory')}}">Add Category</a></li>
+                                    {{-- <li><a href="{{route('addCategory')}}">Add Category</a></li> --}}
                                     <li><a href="{{route('categories')}}">Categories List</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Beverages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('addBeverage')}}">Add Beverage</a></li>
-                                    <li><a href="{{route('beverages')}}">Beverages List</a></li>
+                                    {{-- <li><a href="{{route('addBeverage')}}">Add Beverage</a></li> --}}
+                                    {{-- <li><a href="{{route('beverages')}}">Beverages List</a></li> --}}
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{route('contact')}}">Messages List</a></li>
+                                    {{-- <li><a href="{{route('contact')}}">Messages List</a></li> --}}
                                 </ul>
                             </li>
                         </ul>
@@ -141,18 +141,7 @@
                                 <span class="badge bg-green">6</span>
                             </a>
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                        <span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-                                        <span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-                                    </a>
-                                </li>
+                              
                                 <li class="nav-item">
                                     <a class="dropdown-item">
                                         <span class="image"><img src="{{asset('images/img.jpg')}}" alt="Profile Image" /></span>
@@ -185,7 +174,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                Gentelella - Bootstrap Admin Template by <a href="{{asset('https://colorlib.com')}}">Colorlib</a>
             </div>
             <div class="clearfix"></div>
         </footer>

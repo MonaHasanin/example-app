@@ -34,7 +34,6 @@ class BeveragesController extends Controller
              'image' => 'required|mimes:png,jpg,jpeg',
              'content'=>'required|max:510',
              'price'=>'max:10',
-            //  'category_id'=>'required'
             ], [
                 'title.required' =>"Title is required",
                 'image.required' => "Image is must",
@@ -42,8 +41,8 @@ class BeveragesController extends Controller
                 'price' => "don't forget price..",
             ]);
             $data ['publish'] = isset($request['publish'])? 1 :0 ;
-            $data ['check'] = isset($request['check'])? 1 :0 ; 
-            
+            $data ['check'] = isset($request['check'])? 1 :0 ;
+
             $file_name = $this->uploadFile($request->image, ('assets/images'));
             $data['image'] = $file_name;
 
@@ -89,6 +88,6 @@ public function destroy(string $id)
     $beverage->delete();
     return redirect('beverages')->with('success','Beverages deleted Successfully' );
 }
-  
+
     }
 
