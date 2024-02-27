@@ -10,26 +10,26 @@
     <title>Beverages Admin | Add Beverage</title>
 
     <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="{{asset('vendors/google-code-prettify/bin/prettify.min.css')}}" rel="stylesheet">
     <!-- Select2 -->
-    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="{{asset('vendors/select2/dist/css/select2.min.css')}}" rel="stylesheet">
     <!-- Switchery -->
-    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="{{asset('vendors/switchery/dist/switchery.min.css')}}" rel="stylesheet">
     <!-- starrr -->
-    <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <link href="{{asset('vendors/starrr/dist/starrr.css')}}" rel="stylesheet">
     <!-- bootstrap-daterangepicker -->
-    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -38,7 +38,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-graduation-cap"></i> <span>Beverages Admin</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-graduation-cap"></i> <span>Control Admin</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -46,11 +46,11 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="{{asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>John Doe</h2>
+                        <h2></h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -64,25 +64,25 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="user/users.html">Users List</a></li>
-                                    <li><a href="user/addUser.html">Add User</a></li>
+                                    <li><a href="{{route('users')}}">Users List</a></li>
+                                    <li><a href="{{route('addUser')}}">Add User</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="cat/addCategory.html">Add Category</a></li>
-                                    <li><a href="cat/categories.html">Categories List</a></li>
+                                    <li><a href="{{route('addCategory')}}">Add Category</a></li>
+                                    <li><a href="{{route('categories')}}">Categories List</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Beverages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="bev/addBeverage.html">Add Beverage</a></li>
-                                    <li><a href="bev/beverages.html">Beverages List</a></li>
+                                    <li><a href="{{route('addBeverage')}}">Add Beverage</a></li>
+                                    <li><a href="{{route('beverages')}}">Beverages List</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="contact/messages.html">Messages List</a></li>
+                                    <li><a href="{{route('contact')}}">Messages List</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -102,7 +102,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Lock">
                         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{route('login')}}">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -120,7 +120,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="{{asset('images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="javascript:;"> Profile</a>
@@ -129,7 +129,7 @@
                                     <span>Settings</span>
                                 </a>
                                 <a class="dropdown-item" href="javascript:;">Help</a>
-                                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <a class="dropdown-item" href="{{route('login')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                             </div>
                         </li>
 
@@ -153,37 +153,13 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="{{asset('images/img.jpg')}}" alt="Profile Image" /></span>
                                         <span>
-												<span>John Smith</span>
+												<span> </span>
 												<span class="time">3 mins ago</span>
 											</span>
                                         <span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                        <span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-                                        <span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                        <span>
-												<span>John Smith</span>
-												<span class="time">3 mins ago</span>
-											</span>
-                                        <span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
+												 ...
 											</span>
                                     </a>
                                 </li>
@@ -215,39 +191,39 @@
 </div>
 
 <!-- jQuery -->
-<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <!-- FastClick -->
-<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
-<script src="vendors/nprogress/nprogress.js"></script>
+<script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
 <!-- bootstrap-progressbar -->
-<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<script src="{{asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
 <!-- iCheck -->
-<script src="vendors/iCheck/icheck.min.js"></script>
+<script src="{{asset('vendors/iCheck/icheck.min.js')}}"></script>
 <!-- bootstrap-daterangepicker -->
-<script src="vendors/moment/min/moment.min.js"></script>
-<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="{{asset('vendors/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- bootstrap-wysiwyg -->
-<script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-<script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-<script src="vendors/google-code-prettify/src/prettify.js"></script>
+<script src="{{asset('vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+<script src="{{asset('vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
+<script src="{{asset('vendors/google-code-prettify/src/prettify.js')}}"></script>
 <!-- jQuery Tags Input -->
-<script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<script src="{{asset('vendors/jquery.tagsinput/src/jquery.tagsinput.js')}}"></script>
 <!-- Switchery -->
-<script src="vendors/switchery/dist/switchery.min.js"></script>
+<script src="{{asset('vendors/switchery/dist/switchery.min.js')}}"></script>
 <!-- Select2 -->
-<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="{{asset('vendors/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- Parsley -->
-<script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+<script src="{{asset('vendors/parsleyjs/dist/parsley.min.js')}}"></script>
 <!-- Autosize -->
-<script src="vendors/autosize/dist/autosize.min.js"></script>
+<script src="{{asset('vendors/autosize/dist/autosize.min.js')}}"></script>
 <!-- jQuery autocomplete -->
-<script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+<script src="{{asset('vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js')}}"></script>
 <!-- starrr -->
-<script src="vendors/starrr/dist/starrr.js"></script>
+<script src="{{asset('vendors/starrr/dist/starrr.js')}}"></script>
 <!-- Custom Theme Scripts -->
-<script src="build/js/custom.min.js"></script>
+<script src="{{asset('build/js/custom.min.js')}}"></script>
 
 </body></html>
