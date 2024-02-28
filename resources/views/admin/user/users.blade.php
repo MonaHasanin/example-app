@@ -74,7 +74,7 @@
                           <td>{{$user->user_name}}</td>
                           <td>{{$user->email}}</td>
                           <td>{{$user -> active ? "Yes✔" : "No😢"}}</td>
-                            <td>{{$user -> admin ? "Yes✨‍💻" : "No👩👨‍🦲"}}</td>
+                            <td>{{$user -> admin ? "Admin✨‍💻" : "User👩👨‍🦲"}}</td>
                           <td><img src="./images/edit.png" alt="Edit"></td>
                         </tr>
                       @endforeach

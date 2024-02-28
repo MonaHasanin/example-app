@@ -8,13 +8,13 @@ use App\Http\Controllers\UserController;
 use app\Http\Controllers\ContactController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RedirectIfAuthenticated;
-
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
+//---- Authentication is done to check the email verify and login
 Auth::routes(['verify'=>true]);
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ---------------categories-----------
