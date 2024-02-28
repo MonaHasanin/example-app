@@ -70,8 +70,8 @@
                       @foreach($users as $user)
                         <tr>
                           <td>{{$user->created_at}}</td>
-                          <td>{{$user->fullName}}</td>
-                          <td>{{$user->name}}</td>
+                          <td>{{$user->full_name}}</td>
+                          <td>{{$user->user_name}}</td>
                           <td>{{$user->email}}</td>
                           <td>{{$user -> active ? "Yes✔" : "No😢"}}</td>
                             <td>{{$user -> admin ? "Yes✨‍💻" : "No👩👨‍🦲"}}</td>
