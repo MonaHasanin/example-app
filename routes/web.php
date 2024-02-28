@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BeveragesController;
+use App\Http\Controllers\UserController;
 use app\Http\Controllers\ContactController;
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\RedirectIfAuthenticated;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,8 +28,17 @@ Route::post('/editCategory/{category}', [CategoryController::class, 'update'])->
 // ---------------Beverages-----------
 
 Route::get('/Beverages', [BeveragesController::class, 'index'])->name('Beverages');
-Route::get('/addBeverages', [BeveragesController::class, 'create'])->name('addCategory');
+Route::get('/addBeverages', [BeveragesController::class, 'create'])->name('addBeverages');
 Route::post('/addBeverages', [BeveragesController::class, 'store'])->name('addBeverages');
 Route::get('/editBeverages/{Beverages}', [BeveragesController::class, 'edit'])->name('editBeverages');
 Route::post('/editBeverages/{Beverages}', [BeveragesController::class, 'update'])->name('editBeverages');
+
+// ---------------User-----------
+
+Route::get('/Users', [UserController::class, 'index'])->name('Users');
+Route::get('/addUser', [UserController::class, 'create'])->name('addUser');
+Route::post('/addUser', [UserController::class, 'store'])->name('addUser');
+Route::get('/editUser/{User}', [UserController::class, 'edit'])->name('editUser');
+Route::post('/editUser/{User}', [UserController::class, 'update'])->name('editUser');
+
 

@@ -61,8 +61,8 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    {{-- <li><a href="{{route('users')}}">Users List</a></li> --}}
-                                    {{-- <li><a href="{{route('addUser')}}">Add User</a></li> --}}
+                                    <li><a href="{{route('Users')}}">Users List</a></li>
+                                    <li><a href="{{route('addUser')}}">Add User</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
@@ -116,22 +116,22 @@
                 <nav class="nav navbar-nav">
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                            <a href="{{asset('javascript:;')}}" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                 <img src="{{asset('images/img.jpg')}}" alt="">John Doe
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:;"> Profile</a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="{{asset('javascript:;')}}"> Profile</a>
+                                <a class="dropdown-item" href="{{asset('javascript:;')}}">
                                     <span class="badge bg-red pull-right">50%</span>
                                     <span>Settings</span>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">Help</a>
+                                <a class="dropdown-item" href="{{asset('javascript:;')}}">Help</a>
                                 <a class="dropdown-item" href="{{route('login')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                             </div>
                         </li>
 
                         <li role="presentation" class="nav-item dropdown open">
-                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                            <a href="{{asset('javascript:;')}}" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>
                             </a>
