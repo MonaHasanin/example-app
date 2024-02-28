@@ -34,6 +34,8 @@ class UserController extends Controller
 
     $data['active'] = $request->has('active') ? 1 : 0;
     $data['admin'] = $request->has('admin') ? 1 : 0;
+
+    //to check if there is full_name and not empty
     if ($request->has('full_name') && !empty($request->full_name)) {
         $data['full_name'] = $request->full_name;
     }
