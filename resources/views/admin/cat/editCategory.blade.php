@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title.edit category')
+@section('title'.'edit category')
     @section('content')
 			<!-- page content -->
 			<div class="right_col" role="main">
@@ -30,11 +30,11 @@
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
 										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<a href="{{asset('#')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li><a class="dropdown-item" href="#">Settings 1</a>
+												<li><a class="dropdown-item" href="{{asset('#')}}">Settings 1</a>
 												</li>
-												<li><a class="dropdown-item" href="#">Settings 2</a>
+												<li><a class="dropdown-item" href="{{asset('#')}}">Settings 2</a>
 												</li>
 											</ul>
 										</li>
@@ -48,7 +48,7 @@
 									<form method="post" action="{{route('editCategory', [$category-> id])}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" >
 
                                         @csrf
-                                        @method('PUT')
+                                        @method('POST')
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="add-category">Edit Category <span class="required">*</span>
 											</label>

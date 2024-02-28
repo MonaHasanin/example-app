@@ -32,11 +32,15 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         return view('admin.cat.editCategory', compact('category'));
     }
-    public function update(Request $request , string $id) :RedirectResponse
+    public function update(Request $request, Category $category)
     {
-        Category::where('id', $id)->update([
-            'category'=>$request->category
+        $validated = $this->validate($request,[
+            'name' => 'required|min:3|max:50'
         ]);
-        return redirect('categories');
+
+        $category->update($validated);
+        return redirect()
+            ->route('categories', $category->id)
+            ->withMessage('Edited successfuly!');
     }
 }

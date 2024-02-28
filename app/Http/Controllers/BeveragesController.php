@@ -14,16 +14,16 @@ class BeveragesController extends Controller
 
     public function index()
     {
-        $contacts = Contact::all();
+        // $contacts = Contact::all();
         $category = Category::all();
         $beverages = Beverages::all();
-         return view("admin.beverages.index", compact('beverages', 'category', 'contacts') );
+         return view("admin.bev.beverages", compact('beverages', 'category' ) );
     }
     public function create(){
         $cat_bev  = Category::all();
-        $contacts = Contact::all();
+        // $contacts = Contact::all();
         $categories  = Category::all();
-        return view("admin.beverages.addBeverage", compact('cat_bev', 'contacts',  'categories') );
+        return view("admin.bev.addBeverage", compact('cat_bev',   'categories') );
      }
 
      public function store(Request $request): RedirectResponse
@@ -47,17 +47,17 @@ class BeveragesController extends Controller
             $data['image'] = $file_name;
 
             Beverages::create($data);
-            return  redirect("beverages")->with('success','Beverages Added Successfully'  );
+            return  redirect("Beverages")->with('success','Beverages Added Successfully'  );
         }
 
 
         public function edit(string $id)
     {
-        $contacts = Contact::all();
+        // $contacts = Contact::all();
         $cat_bev  = Category::all();
         $categories  = Category::all();
         $beverages = beverages::findOrFail($id);
-        return view('admin.beverages.editBeverage', compact('beverages', 'categories', 'contacts', 'cat_bev'));
+        return view('admin.bev.editBeverage', compact('beverages', 'categories' , 'cat_bev'));
     }
     public function update(Request $request, string $id)
 {
@@ -79,14 +79,14 @@ class BeveragesController extends Controller
 
     Beverages::findOrFail($id)->update($data);
 
-    return redirect('beverages')->with('success', 'Beverages edited Successfully');
+    return redirect('Beverages')->with('success', 'Beverages edited Successfully');
 }
 
 public function destroy(string $id)
 {
     $beverage = Beverages::findOrFail($id);
     $beverage->delete();
-    return redirect('beverages')->with('success','Beverages deleted Successfully' );
+    return redirect('Beverages')->with('success','Beverages deleted Successfully' );
 }
 
     }

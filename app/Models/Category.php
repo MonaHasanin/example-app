@@ -9,10 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Category extends Model{
     use HasFactory;
     protected $table = 'category';
-//     protected $fillable = [
-//     'id',
-//     'name',
-// ];
+    protected $fillable = [
+    'name',
+];
     
   
 public function beverages()

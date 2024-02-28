@@ -45,32 +45,34 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-										<div class="item form-group">
+									<form method="POST" action="{{route('editBeverages', [$beverages-> id])}}"  id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+										@csrf
+                                        @method("POST")
+                                        <div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" required="required" class="form-control ">
+												<input name="title" type="text" id="title" required="required" class="form-control " value="{{old('title')}}">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
+												<textarea id="content" name="content" value="{{old('content')}}" required="required" class="form-control" placeholder="Contents"></textarea>
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" name="price" required="required">
+												<input id="price" class="form-control" type="number" value="{{old('price')}}" name="price" required="required">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat">
+													<input name="publish" type="checkbox" value="{{old('publish')}}" class="flat">
 												</label>
 											</div>
 										</div>
@@ -78,12 +80,12 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat">
+													<input name="check" type="checkbox" value="{{old('check')}}" class="flat">
 												</label>
 											</div>
 										</div>
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" value="{{old('image')}}" for="image">Image <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input type="file" id="image" name="image" required="required" class="form-control">
@@ -96,8 +98,9 @@
 											<div class="col-md-6 col-sm-6 ">
 												<select class="form-control" name="category_id" id="">
 													<option value=" ">Select Category</option>
-													<option value="cat1">Category 1</option>
-													<option value="cat2">Category 2</option>
+                                                    @foreach($cat_bev as $cat)
+													<option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                    @endforeach
 												</select>
 											</div>
 										</div>

@@ -19,7 +19,7 @@
     <!-- iCheck -->
     <link href="{{asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
     <!-- Datatables -->
-    
+
     <link href="{{asset('vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-file-image-o"></i></i> <span>Beverages Admin</span></a>
+              <a href="{{asset('Beverages')}}" class="site_title"><i class="fa fa-file-image-o"></i></i> <span>Beverages Admin</span></a>
             </div><!---ADD ROUTE IN PLACE OF INDEX.HTML-->
 
             <div class="clearfix"></div>
@@ -67,14 +67,14 @@
                             </li>
                             <li><a><i class="fa fa-edit"></i> Categories <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    {{-- <li><a href="{{route('addCategory')}}">Add Category</a></li> --}}
+                                     <li><a href="{{route('addCategory')}}">Add Category</a></li>
                                     <li><a href="{{route('categories')}}">Categories List</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Beverages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    {{-- <li><a href="{{route('addBeverage')}}">Add Beverage</a></li> --}}
-                                    {{-- <li><a href="{{route('beverages')}}">Beverages List</a></li> --}}
+                                     <li><a href="{{route('addBeverages')}}">Add Beverage</a></li>
+                                     <li><a href="{{route('Beverages')}}">Beverages List</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
@@ -136,7 +136,7 @@
                                 <span class="badge bg-green">6</span>
                             </a>
                             <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                              
+
                                 <li class="nav-item">
                                     <a class="dropdown-item">
                                         <span class="image"><img src="{{asset('images/img.jpg')}}" alt="Profile Image" /></span>
