@@ -5,7 +5,7 @@ use app\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BeveragesController;
 use App\Http\Controllers\UserController;
-use app\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +17,11 @@ Route::get('/', function () {
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('contact', [ContactController::class, 'create'])->name('contact');
+Route::get('contact', [ContactController::class, 'store'])->name('contact');
+
+
+Route::group(['middleware' => 'admin'] , function(){
 // ---------------categories-----------
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
@@ -41,4 +46,7 @@ Route::post('/addUser', [UserController::class, 'store'])->name('addUser');
 Route::get('/editUser/{User}', [UserController::class, 'edit'])->name('editUser');
 Route::post('/editUser/{User}', [UserController::class, 'update'])->name('editUser');
 
+// ----------------- Messages ------------
+Route::get('/contactUs', [ContactController::class, 'index'])->name('contactUs');
 
+});

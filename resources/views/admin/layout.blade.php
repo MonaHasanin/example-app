@@ -79,7 +79,7 @@
                             </li>
                             <li><a><i class="fa fa-desktop"></i> Messages <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    {{-- <li><a href="{{route('contact')}}">Messages List</a></li> --}}
+                                    <li><a href="{{route('contactUs')}}">Messages List</a></li>
                                 </ul>
                             </li>
                         </ul>

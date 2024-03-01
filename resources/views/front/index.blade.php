@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wave Cafe HTML Template by Tooplate</title>
-    <link rel="stylesheet" href="{{asset('front-assets/fontawesome/css/all.min.css')}}"> <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{{asset('fontawesome/css/all.min.css')}}"> <!-- https://fontawesome.com/ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="{{asset('front-assets/css/tooplate-wave-cafe.css')}}">
+    <link rel="stylesheet" href="{{asset('css/tooplate-wave-cafe.css')}}">
 <!--
 Tooplate 2121 Wave Cafe
 https://www.tooplate.com/view/2121-wave-cafe
@@ -43,7 +43,7 @@ https://www.tooplate.com/view/2121-wave-cafe
                 </a>
               </li>
               <li class="tm-page-nav-item">
-                <a href="#contact" class="tm-page-link">
+                <a  href="#contact" class="tm-page-link">
                   <i class="fas fa-comments tm-page-link-icon"></i>
                   <span>Contact</span>
                 </a>
@@ -67,7 +67,7 @@ https://www.tooplate.com/view/2121-wave-cafe
             <div id="cold" class="tm-tab-content">
               <div class="tm-list">
                 <div class="tm-list-item">
-                  <img src="{{asset('front-assets/img/iced-americano.png')}}" alt="Image" class="tm-list-item-img">
+                  <img src="{{asset('img/iced-americano.png')}}" alt="Image" class="tm-list-item-img">
                   <div class="tm-black-bg tm-list-item-text">
                     <h3 class="tm-list-item-name">Iced Americano<span class="tm-list-item-price">$10.25</span></h3>
                     <p class="tm-list-item-description">Here is a short description for the first item. Wave Cafe Template is provided by Tooplate.</p>
@@ -75,28 +75,15 @@ https://www.tooplate.com/view/2121-wave-cafe
                 </div> 
               </div>
             </div>
- 
-
-            <div id="juice" class="tm-tab-content">
-              <div class="tm-list">
-                <div class="tm-list-item">
-                  <img src="{{asset('front-assets/img/smoothie-1.png')}}" alt="Image" class="tm-list-item-img">
-                  <div class="tm-black-bg tm-list-item-text">
-                    <h3 class="tm-list-item-name">Strawberry Smoothie<span class="tm-list-item-price">$12.50</span></h3>
-                    <p class="tm-list-item-description">Here is a short description for the item along with a squared thumbnail.</p>
-                  </div>
-                </div> 
-              </div>
-            </div>
+     
             <!-- end Drink Menu Page -->
-          </div>
-
+            
           <!-- About Us Page -->
           <div id="about" class="tm-page-content">
             <div class="tm-black-bg tm-mb-20 tm-about-box-1">
               <h2 class="tm-text-primary tm-about-header">About Wave Cafe</h2>
               <div class="tm-list-item tm-list-item-2">
-                <img src="{{asset('front-assets/img/about-1.png')}}" alt="Image" class="tm-list-item-img tm-list-item-img-big">
+                <img src="{{asset('img/about-1.png')}}" alt="Image" class="tm-list-item-img tm-list-item-img-big">
                 <div class="tm-list-item-text-2">
                   <p>Wave Cafe is a one-page video background HTML CSS template from Tooplate. You can use this for your business websites.</p>
                   <p>You can also use this for your client websites which you get paid for your website services. Please tell your friends about us.</p>
@@ -109,7 +96,7 @@ https://www.tooplate.com/view/2121-wave-cafe
           <div id="special" class="tm-page-content">
             <div class="tm-special-items">
               <div class="tm-black-bg tm-special-item">
-                <img src="{{asset('front-assets/img/special-01.jpg')}}" alt="Image">
+                <img src="{{asset('img/special-01.jpg')}}" alt="Image">
                 <div class="tm-special-item-description">
                   <h2 class="tm-text-primary tm-special-item-title">Special One</h2>
                   <p class="tm-special-item-text">Here is a short text description for the first special item. You are not allowed to redistribute this template ZIP file.</p>
@@ -118,15 +105,32 @@ https://www.tooplate.com/view/2121-wave-cafe
             </div>
           </div>
           <!-- end Special Items Page -->
-
+          </div>
           <!-- Contact Page -->
           <div id="contact" class="tm-page-content">
             <div class="tm-black-bg tm-contact-text-container">
               <h2 class="tm-text-primary">Contact Wave</h2>
-              <p>Wave Cafe Template has a video background. You can use this layout for your websites. Please contact Tooplate's Facebook page. Tell your friends about our website.</p>
+              <p>Wave Cafe Template has a video background. You can use this layout for your websites.
+                 Please contact Tooplate's Facebook page. Tell your friends about our website.</p>
+
+            
             </div>
             <div class="tm-black-bg tm-contact-form-container tm-align-right">
-              <form action="" method="POST" id="contact-form">
+              <form action="#{{route ('contact') }}" method="POST" id="contact-form">
+                @csrf
+               
+                @if($errors->any())
+                    <div class="alert-danger">
+                        @foreach($errors->all() as $error)
+                            <div>{{$error}}</div>
+                        @endforeach
+                    </div>
+                @endif
+
+                  @if(session('success'))
+                  <div class="alert alert-danger">{{session('success')}}</div>
+                  @endif
+                  
                 <div class="tm-form-group">
                   <input type="text" name="name" class="tm-form-control" placeholder="Name" required="" />
                 </div>
@@ -159,11 +163,11 @@ https://www.tooplate.com/view/2121-wave-cafe
   <div class="tm-video-wrapper">
       <i id="tm-video-control-button" class="fas fa-pause"></i>
       <video autoplay muted loop id="tm-video">
-          <source src="{{asset('front-assets/video/wave-cafe-video-bg.mp4')}}" type="video/mp4">
+          <source src="{{asset('video/wave-cafe-video-bg.mp4')}}" type="video/mp4">
       </video>
   </div>
 
-  <script src="{{asset('front-assets/js/jquery-3.4.1.min.js')}}"></script>
+  <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
   <script>
 
     function setVideoSize() {

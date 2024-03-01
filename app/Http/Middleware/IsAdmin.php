@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
 
 class IsAdmin
 {
@@ -15,11 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->admin == 1){
+        if (auth()->check() && auth()->user()->admin == 1) {
             return $next($request);
-        
         } else {
-            return redirect('home')->with('error', 'Sorry, you are unauthorized.'); 
-        } 
+            return redirect('home')->with('error', 'Sorry, you are unauthorized.');
+        }
     }
 }
