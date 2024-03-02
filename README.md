@@ -80,6 +80,11 @@ Features
         Insert Category & List All Categories
         Insert Beverage & List All Beverages
 
+        create registration and login system for admins with email verification.
+        
+login/register by login for admins only to go to admin panel and if it's user they go to main web 
+show the full name of the user at the top right and top left of the admin panel on all pages.
+
     Home Page (Drink Menu):
         List Beverages According to Category Selected
 
@@ -90,22 +95,44 @@ Admin Panel
         Login
         Logout
         Edit User
-        Delete User
+        directly add user from addUser
+       // softDelete for User
 
     Category Management:
         Edit Category
-        Delete Category
+        if we press delete we can remove the category only if it has no data in the beverages table
+        how categories list on categories page
 
     Beverage Management:
-        Edit Beverage
+        control beverages (add - edit - delete)
         Delete Beverage
 
+   Messages
+       show the messsages that we received from contact form
+       Contact page to send email to the owner of the website with the message details, and save the data to the DB to check from admin.
+       
     Additional Features:
         List Special Items
+        inside home page display the last 3 categories only, and show products of each category if we click the category name.
+        About page with fixed content.
+        special items page, from DB for special products only.
+when 
+Technologies Used 
 
-Technologies Used
-
+ 
   Frontend: Bootstrap
   Backend: PHP-Laravel
   Database: MySQL
   Mail: mailhug
+
+  
+  ![1](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/8e22eca7-3d0a-4963-9b42-e4a56174d180)
+![2](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/9783f3be-3351-4ab3-9a16-1d4c25b416a6)
+![4](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/7d1c124d-25df-444e-88da-486bdc134314)
+
+![5](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/5144868f-e577-436f-9705-f2d52fd8cf9d)
+![7](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/a09f2fc1-ab42-4004-a75e-086bccc3c650)
+
+![6](https://github.com/MonaHasanin/waveCaffe-Laravel/assets/50083192/3de29579-ca3a-4583-a671-1b13760ea73a)
+
+
