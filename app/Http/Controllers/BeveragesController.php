@@ -39,7 +39,7 @@ class BeveragesController extends Controller
                 'image.required' => "Image is must",
                 'content.required' => "Content please",
                 'price' => "don't forget price..",
-                'category_id.required' => "Please select a category", 
+                'category_id.required' => "Please select a category",
             ]);
             $data ['publish'] = isset($request['publish'])? 1 :0 ;
             $data ['check'] = isset($request['check'])? 1 :0 ;
@@ -87,7 +87,8 @@ public function destroy(string $id)
 {
     $beverage = Beverages::findOrFail($id);
     $beverage->delete();
-    return redirect('Beverages')->with('success','Beverages deleted Successfully' );
+    return redirect('Beverages')
+        ->with('success','Beverages deleted Successfully' );
 }
 
     }

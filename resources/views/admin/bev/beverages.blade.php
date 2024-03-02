@@ -60,9 +60,8 @@
 
 
                       <tbody>
-                      @if(session('message'))
-                          <div class="alert alert-success">{{session('message')}}</div>
-                          )
+                      @if(session('success'))
+                          <div class="alert alert-success">{{session('success')}}</div>
                       @endif
 
                          @foreach($beverages as $beverage)
@@ -71,7 +70,16 @@
                           <td>{{$beverage -> title}}</td>
                           <td>{{$beverage -> publish ? "Yes✔" : "No😢"}}</td>
                             <td><a href="{{route('editBeverages', [$beverage->id])}}"><img src="{{ asset('images/edit.png') }}" alt="Edit"></a></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
+                            <td>  
+                                <form action="{{ route('deleteBeverage', ['id' => $beverage->id]) }}" method="post">
+                                        @csrf
+                                            @method('DELETE')
+                                            <button type="submit">
+                                                <img src="{{ asset('./images/delete.png') }}" alt="Delete"> 
+                                            </button>
+                                            </form>
+    
+                            </td>
                         </tr>
                          @endforeach
                       </tbody>

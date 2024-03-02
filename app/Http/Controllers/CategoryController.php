@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $category = new Category();
         $category->name = $request->input('name');
         $category->save();
-        return redirect('categories');
+        return redirect('categories') ->withMessage('Added successfully!');
     }
 
     public function edit(string $id)
@@ -41,6 +41,21 @@ class CategoryController extends Controller
         $category->update($validated);
         return redirect()
             ->route('categories', $category->id)
-            ->withMessage('Edited successfuly!');
+            ->withMessage('Edited successfully!');
     }
+
+    public function destroy($id)
+{
+    $category = Category::findOrFail($id);
+
+    // to chech if there is beverages in the category
+    if ($category->beverages()->count() > 0) {
+        return back()->with('error', "Can't delete Category because there is beverages in it.");
+    }
+
+    // delete category if there is no beverages in it
+    $category->delete();
+    return redirect('categories')->with('success', 'Category is deleted successfully.');
+}
+
 }

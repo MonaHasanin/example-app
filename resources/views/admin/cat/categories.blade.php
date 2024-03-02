@@ -59,15 +59,30 @@
 
                       <tbody>
 
-                      @if(session('message'))
-                          <div class="alert alert-success">{{session('message')}}</div>
-                          )
+                      @if(session('success'))
+                          <div class="alert alert-success">{{session('success')}}</div>
                       @endif
-
+                      
+                      @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
                       @foreach($categories as $category)
                         <tr>
                           <td>{{ $category -> name }}</td>
                           <td><a href="{{route('editCategory', [$category->id])}}"><img src="{{ asset('images/edit.png') }}" alt="Edit"></a></td>
+                          <td>  
+                            <form action="{{ route('deleteCategory', ['id' => $category->id]) }}" method="post">
+                                    @csrf
+                                        @method('DELETE')
+                                        <button type="submit">
+                                            <img src="{{ asset('./images/delete.png') }}" alt="Delete"> 
+                                        </button>
+                                        </form>
+
+                        </td>
+                        
                         </tr>
                       @endforeach
                       </tbody>

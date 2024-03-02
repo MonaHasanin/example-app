@@ -57,25 +57,30 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
+                     
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
 
+                        @foreach ( $contacts as $contact)
+                        <tr>
+                          <td>{{$contact->name}}</td>
+                          <td>{{$contact->email}}</td>
+                          <td><a href="{{route('showMessage', [$contact->id])}}"><img src="{{asset('./images/edit.png')}}" alt="Show"></td>
+                            <td>  
+                                <form action="{{ route('deleteMessage', ['id' => $contact->id]) }}" method="post">
+                                        @csrf
+                                            @method('DELETE')
+                                            <button type="submit">
+                                                <img src="{{ asset('./images/delete.png') }}" alt="Delete"> 
+                                            </button>
+                                            </form>
+
+                            </td>
+                            
+                        </tr> 
+
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

@@ -18,7 +18,7 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
-Route::get('contact', [ContactController::class, 'store'])->name('contact');
+Route::post('contact', [ContactController::class, 'store'])->name('contact');
 
 
 Route::group(['middleware' => 'admin'] , function(){
@@ -29,6 +29,7 @@ Route::get('/addCategory', [CategoryController::class, 'create'])->name('addCate
 Route::post('/addCategory', [CategoryController::class, 'store'])->name('addCategory');
 Route::get('/editCategory/{category}', [CategoryController::class, 'edit'])->name('editCategory');
 Route::post('/editCategory/{category}', [CategoryController::class, 'update'])->name('editCategory');
+Route::delete('deleteCategory/{id}', [CategoryController::class, 'destroy'])->name('deleteCategory');
 
 // ---------------Beverages-----------
 
@@ -37,6 +38,7 @@ Route::get('/addBeverages', [BeveragesController::class, 'create'])->name('addBe
 Route::post('/addBeverages', [BeveragesController::class, 'store'])->name('addBeverages');
 Route::get('/editBeverages/{Beverages}', [BeveragesController::class, 'edit'])->name('editBeverages');
 Route::post('/editBeverages/{Beverages}', [BeveragesController::class, 'update'])->name('editBeverages');
+Route::delete('deleteBeverage/{id}', [BeveragesController::class, 'destroy'])->name('deleteBeverage');
 
 // ---------------User-----------
 
@@ -48,5 +50,8 @@ Route::post('/editUser/{User}', [UserController::class, 'update'])->name('editUs
 
 // ----------------- Messages ------------
 Route::get('/contactUs', [ContactController::class, 'index'])->name('contactUs');
+
+Route::get('showMessage/{message}', [ContactController::class, 'show'])->name('showMessage');
+Route::delete('deleteMessage/{id}', [ContactController::class, 'destroy'])->name('deleteMessage');
 
 });

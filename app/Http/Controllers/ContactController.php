@@ -4,27 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use App\Mail\ContactMail;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\DemoMail;
 use Illuminate\Support\Facades\Notification;
-
+use Illuminate\Support\Facades\Mail;
+// use Mail;
 class ContactController extends Controller
 {
     public function index()
     {
         $contacts = Contact::all();
-        return view('admin.messages.index', compact('contacts'));
+        $msg = new Contact(); 
+        return view('admin.contact.messages', compact('contacts', 'msg'));
     }
 
     public function show(string $id)
     {
+        $contacts = Contact::all();
         $msg = Contact::findOrFail($id);
-        return view('admin.messages.showMessage', compact('msg'));
+        return view('admin.contact.showMessage', compact('msg' ,'contacts'));
     }
 
     public function create()
     {
-        return view('admin.messages.add');
+        return view('front.index');
     }
 
     public function store(Request $request)
@@ -45,7 +47,7 @@ class ContactController extends Controller
         $msg->email = $request->email;
         $msg->save();
 
-        Mail::to('hello@example.com')->send(new ContactMail($msg));
+        Mail::to('hello@example.com')->send(new DemoMail($msg));
 
         return back()->with('success', 'Message sent successfully');
     }
@@ -54,6 +56,6 @@ class ContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
-        return redirect('contactMsg')->with('success','Message deleted successfully' );
+        return redirect('contactUs')->with('success','Message deleted successfully' );
     }
 }
