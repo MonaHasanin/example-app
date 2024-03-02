@@ -57,7 +57,7 @@ class BeveragesController extends Controller
         $user = Auth::user();
         $cat_bev  = Category::all();
         $categories  = Category::all();
-        $beverages = beverages::findOrFail($id);
+        $beverages = Beverages::findOrFail($id);
         return view('admin.bev.editBeverage', compact('beverages', 'categories' , 'cat_bev', 'user'));
     }
     public function update(Request $request, string $id)

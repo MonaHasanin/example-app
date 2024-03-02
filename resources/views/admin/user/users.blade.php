@@ -74,7 +74,8 @@
                           <td>{{$user->email}}</td>
                           <td>{{$user -> active ? "Yes✔" : "No😢"}}</td>
                             <td>{{$user -> admin ? "Admin✨‍💻" : "User👩👨‍🦲"}}</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
+                          <td><a href="{{route('editUser', [$user->id])}}"><img src="{{ asset('images/edit.png') }}" alt="Edit"></a></td>
+
                         </tr>
                       @endforeach
                       </tbody>
