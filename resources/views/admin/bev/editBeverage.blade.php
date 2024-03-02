@@ -51,19 +51,21 @@
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6 ">
-                                                <input name="title" type="text" id="title" required="required" class="form-control" value="{{ old('title') }}">
+                                                <input name="title" type="text" id="title" required="required" class="form-control" value="{{ old('title', $beverages->title) }}">
+                                                             
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6 ">
-                                                <textarea id="content" name="content" required="required" class="form-control" placeholder="Contents">{{ old('content') }}</textarea>
+                                                <textarea id="content" name="content" required="required" class="form-control" placeholder="Contents">{{ old('content', $beverages->content) }}</textarea>
+                                            
                                             </div>
                                         </div>
                                         <div class="item form-group">
                                             <label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6 ">
-                                                <input id="price" class="form-control" type="number" name="price" required="required" value="{{ old('price') }}">
+                                                <input id="price" class="form-control" type="number" name="price" required="required" value="{{ old('price', $beverages->price) }}">
                                             </div>
                                         </div>
                                         <div class="item form-group">
@@ -71,6 +73,11 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input name="publish" type="checkbox" class="flat" {{ old('publish') ? 'checked' : '' }}>
+                                                    @if(old('publish') !== null)
+                                                        <span>Published</span>
+                                                    @else
+                                                        <span>Not Published</span>
+                                                    @endif
                                                 </label>
                                             </div>
                                         </div>
@@ -79,6 +86,11 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input name="check" type="checkbox" class="flat" {{ old('check') ? 'checked' : '' }}>
+                                                    @if(old('check'))
+                                                        <span>Special</span>
+                                                    @else
+                                                        <span>Not Special</span>
+                                                    @endif
                                                 </label>
                                             </div>
                                         </div>
@@ -96,8 +108,8 @@
                                             <div class="col-md-6 col-sm-6 ">
                                                 <select class="form-control" name="category_id" id="">
                                                     <option value=" ">Select Category</option>
-                                                    @foreach($cat_bev as $cat)
-                                                        <option value="{{$cat->id}}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>{{$cat->name}}</option>
+                                                    @foreach($cat_bev as $category)
+                                                        <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
