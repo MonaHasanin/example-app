@@ -72,9 +72,9 @@
                                             <label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input name="publish" type="checkbox" class="flat" {{ old('publish') ? 'checked' : '' }}>
+                                                    <input name="publish" type="checkbox" class="flat" {{ old('publish') }}>
                                                     @if(old('publish') !== null)
-                                                        <span>Published</span>
+                                                        <span>Published😀</span>
                                                     @else
                                                         <span>Not Published</span>
                                                     @endif
@@ -85,7 +85,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input name="check" type="checkbox" class="flat" {{ old('check') ? 'checked' : '' }}>
+                                                    <input name="check" type="checkbox" class="flat" {{ old('check') }}>
                                                     @if(old('check'))
                                                         <span>Special</span>
                                                     @else
@@ -107,7 +107,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6 ">
                                                 <select class="form-control" name="category_id" id="">
-                                                    <option value=" ">Select Category</option>
+                                                    <option value=" " >Select Category</option>
                                                     @foreach($cat_bev as $category)
                                                         <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
                                                     @endforeach
