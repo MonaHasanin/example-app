@@ -54,34 +54,37 @@ https://www.tooplate.com/view/2121-wave-cafe
       </div>
       <div class="tm-right">
         <main class="tm-main">
-            <div id="drink" class="tm-page-content">
-                <!-- Drink Menu Page -->
-                <nav class="tm-black-bg tm-drinks-nav">
-                  <ul>
-                    @foreach ($categories as $category)
-                    <li>
-                      <a href="#" class="tm-tab-link active" data-id="{{ $category->id }}">
-                        {{$category->name}}
-                      </a>
-                    </li>
-                    @endforeach
-                  </ul>
-                </nav>
-              
-                <div class="tm-tab-content">
-                    @foreach($beveragesSpecial as $beverage)
-                        <div class="tm-list-item">
-                            <img src="{{ asset('assets/images/'.$beverage->image) }}" alt="Image" class="tm-list-item-img">
-                            <div class="tm-black-bg tm-list-item-text">
-                                <h3 class="tm-list-item-name">{{ $beverage->title }} </h3>
-                                <p class="tm-list-item-description">{{ $beverage->content }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-              </div>
-        
-               <!-- end Drink Menu Page -->
+          <div id="drink" class="tm-page-content">
+            <!-- Drink Menu Page -->
+            <nav class="tm-black-bg tm-drinks-nav">
+              <ul>
+                 @foreach ($categories as $category)
+                <li>
+                  <a href="#" class="tm-tab-link active" data-id="cold">
+                   
+                    {{$category->name}}
+                
+                  </a>
+                </li>     
+                @endforeach
+              </ul>
+            </nav>
+
+       <div class="tm-tab-content">
+    <div class="tm-list">  
+        @foreach ($beverages as $beverage)
+        <div class="tm-list-item">  
+            <img src="{{ asset('storage/' . $beverage->image) }}" alt="Image" class="tm-list-item-img">
+            <div class="tm-black-bg tm-list-item-text">
+                <h3 class="tm-list-item-name">{{ $beverage->title }}</h3>
+                <p class="tm-list-item-description">{{ $beverage->content }}</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div> 
+             </div> 
+            <!-- end Drink Menu Page -->
           </div>
 
           <!-- About Us Page -->
@@ -114,9 +117,9 @@ https://www.tooplate.com/view/2121-wave-cafe
             <div class="tm-list">
                 @foreach($beveragesSpecial as $beverage)
                     <div class="tm-list-item">
-                        <img src="{{ asset('assets/images/'.$beverage->image) }}" alt="Image" class="tm-list-item-img">
+                        <img src="{{ asset($beverage->image) }}" alt="Image" class="tm-list-item-img">
                         <div class="tm-black-bg tm-list-item-text">
-                            <h3 class="tm-list-item-name">{{ $beverage->title }} </h3>
+                            <h3 class="tm-list-item-name">{{ $beverage->title }}<span class="tm-list-item-price">${{ $beverage->price }}</span></h3>
                             <p class="tm-list-item-description">{{ $beverage->content }}</p>
                         </div>
                     </div>

@@ -7,21 +7,24 @@ use App\Models\Contact;
 use App\Mail\DemoMail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 // use Mail;
 class ContactController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $contacts = Contact::all();
         $msg = new Contact(); 
-        return view('admin.contact.messages', compact('contacts', 'msg'));
+        return view('admin.contact.messages', compact('contacts', 'msg', 'user'));
     }
 
     public function show(string $id)
     {
+        $user = Auth::user();
         $contacts = Contact::all();
         $msg = Contact::findOrFail($id);
-        return view('admin.contact.showMessage', compact('msg' ,'contacts'));
+        return view('admin.contact.showMessage', compact('msg' ,'contacts', 'user'));
     }
 
     public function create()

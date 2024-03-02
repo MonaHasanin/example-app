@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index(){
+        $user = Auth::user();
         $users = User::all();
-        return view("admin.user.users", compact("users"));
+        return view("admin.user.users", compact("users", 'user'));
     }
     public function create(){
-        return view('admin.user.addUser');
+        $user = Auth::user();
+        return view('admin.user.addUser', compact('user'));
     }
 
     public function store(Request $request): RedirectResponse

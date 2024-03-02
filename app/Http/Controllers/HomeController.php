@@ -16,9 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $beverages = Beverages::where('publish', 1)->get();
+        // $beverages = Beverages::where('publish', 1)->get();
         $beveragesSpecial = Beverages::where('check', 1)->get();
- 
+        $beverages = Beverages::with('category')->where('publish', 1)->get();
         return view("front.index", compact('categories', 'beveragesSpecial','beverages'  ));
     }
     

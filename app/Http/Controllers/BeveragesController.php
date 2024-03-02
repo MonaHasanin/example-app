@@ -8,21 +8,23 @@ use App\Traits\Common;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 class BeveragesController extends Controller
 {
      use Common;
 
     public function index()
     {
-        // $contacts = Contact::all();
+        $user = Auth::user();
         $category = Category::all();
         $beverages = Beverages::all();
-         return view("admin.bev.beverages", compact('beverages', 'category' ) );
+         return view("admin.bev.beverages", compact('beverages', 'category' , 'user' ) );
     }
     public function create(){
+        $user = Auth::user();
         $cat_bev  = Category::all();
         $categories  = Category::all();
-        return view("admin.bev.addBeverage", compact('cat_bev', 'categories') );
+        return view("admin.bev.addBeverage", compact('cat_bev', 'categories', 'user') );
      }
 
      public function store(Request $request): RedirectResponse
@@ -52,11 +54,11 @@ class BeveragesController extends Controller
 
         public function edit(string $id)
     {
-        // $contacts = Contact::all();
+        $user = Auth::user();
         $cat_bev  = Category::all();
         $categories  = Category::all();
         $beverages = beverages::findOrFail($id);
-        return view('admin.bev.editBeverage', compact('beverages', 'categories' , 'cat_bev'));
+        return view('admin.bev.editBeverage', compact('beverages', 'categories' , 'cat_bev', 'user'));
     }
     public function update(Request $request, string $id)
 {
