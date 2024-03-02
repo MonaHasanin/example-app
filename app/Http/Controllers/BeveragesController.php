@@ -33,13 +33,11 @@ class BeveragesController extends Controller
              'image' => 'required|mimes:png,jpg,jpeg',
              'content'=>'required|max:510',
              'price'=>'max:10',
-             'category_id'=> 'required',
             ], [
                 'title.required' =>"Title is required",
                 'image.required' => "Image is must",
                 'content.required' => "Content please",
                 'price' => "don't forget price..",
-                'category_id.required' => "Please select a category",
             ]);
             $data ['publish'] = isset($request['publish'])? 1 :0 ;
             $data ['check'] = isset($request['check'])? 1 :0 ;

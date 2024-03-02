@@ -15,12 +15,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $category = Category::all();
+        $categories = Category::all();
         $beverages = Beverages::where('publish', 1)->get();
-        $beverageSpecial = Beverages::where('check', 1)->get();
-        return view("front.index", compact('category', 'beverageSpecial', 'beverages'));
+        $beveragesSpecial = Beverages::where('check', 1)->get();
+ 
+        return view("front.index", compact('categories', 'beveragesSpecial','beverages'  ));
     }
-
+    
     public function admin(){
         $contacts = Contact::all();
         $category = Category::all();
