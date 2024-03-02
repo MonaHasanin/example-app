@@ -49,61 +49,60 @@
 										@csrf
                                         @method("POST")
                                         <div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input name="title" type="text" id="title" required="required" class="form-control " value="{{old('title')}}">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" value="{{old('content')}}" required="required" class="form-control" placeholder="Contents"></textarea>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" value="{{old('price')}}" name="price" required="required">
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
-											<div class="checkbox">
-												<label>
-													<input name="publish" type="checkbox" value="{{old('publish')}}" class="flat">
-												</label>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
-											<div class="checkbox">
-												<label>
-													<input name="check" type="checkbox" value="{{old('check')}}" class="flat">
-												</label>
-											</div>
-										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" value="{{old('image')}}" for="image">Image <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="file" id="image" name="image" required="required" class="form-control">
-											</div>
-										</div>
-
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
-											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<select class="form-control" name="category_id" id="">
-													<option value=" ">Select Category</option>
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input name="title" type="text" id="title" required="required" class="form-control" value="{{ old('title') }}">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <textarea id="content" name="content" required="required" class="form-control" placeholder="Contents">{{ old('content') }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input id="price" class="form-control" type="number" name="price" required="required" value="{{ old('price') }}">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input name="publish" type="checkbox" class="flat" {{ old('publish') ? 'checked' : '' }}>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input name="check" type="checkbox" class="flat" {{ old('check') ? 'checked' : '' }}>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="file" id="image" name="image" required="required" class="form-control">
+                                                <p>{{ $beverages->image }}</p>
+                                                <img src="{{ 'assets/images/' . $beverages->image }}" alt="Image"
+                                                class="tm-list-item-img">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <select class="form-control" name="category_id" id="">
+                                                    <option value=" ">Select Category</option>
                                                     @foreach($cat_bev as $cat)
-													<option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                        <option value="{{$cat->id}}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>{{$cat->name}}</option>
                                                     @endforeach
-												</select>
-											</div>
-										</div>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
