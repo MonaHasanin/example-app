@@ -8,6 +8,7 @@ use App\Mail\DemoMail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 // use Mail;
 class ContactController extends Controller
 {
@@ -16,20 +17,22 @@ class ContactController extends Controller
         $user = Auth::user();
         $contacts = Contact::all();
         $msg = new Contact(); 
-        return view('admin.contact.messages', compact('contacts', 'msg', 'user'));
+        $categories = Category::all();
+        return view('admin.contact.messages', compact('contacts', 'categories', 'msg', 'user'));
     }
 
     public function show(string $id)
     {
         $user = Auth::user();
-        $contacts = Contact::all();
+        $contacts = Contact::all(); 
         $msg = Contact::findOrFail($id);
         return view('admin.contact.showMessage', compact('msg' ,'contacts', 'user'));
     }
 
     public function create()
     {
-        return view('front.index');
+        $categories = Category::all();
+        return view('front.index', compact( 'categories' ));
     }
 
     public function store(Request $request)

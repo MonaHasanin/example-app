@@ -50,7 +50,7 @@ class UserController extends Controller
         // Create the user
         User::create($data);
 
-        return redirect()->route('users.index')->with('success', 'User Added Successfully');
+        return redirect('Users')->with('success', 'User Added Successfully');
     } catch (\Exception $e) {
         // Log the error or handle it in another way
         return redirect()->back()->withErrors(['error' => $e->getMessage()])->withInput();

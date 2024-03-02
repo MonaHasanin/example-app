@@ -16,11 +16,13 @@ Route::get('/', function () {
 //---- Authentication is done to check the email verify and login
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// ---------------User Routes-----------
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('contact', [ContactController::class, 'store'])->name('contact');
 
 
+// ---------------ِAdmin Routes-----------
 Route::group(['middleware' => 'admin'] , function(){
 // ---------------categories-----------
 
@@ -50,7 +52,6 @@ Route::post('/editUser/{User}', [UserController::class, 'update'])->name('editUs
 
 // ----------------- Messages ------------
 Route::get('/contactUs', [ContactController::class, 'index'])->name('contactUs');
-
 Route::get('showMessage/{message}', [ContactController::class, 'show'])->name('showMessage');
 Route::delete('deleteMessage/{id}', [ContactController::class, 'destroy'])->name('deleteMessage');
 
