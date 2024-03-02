@@ -72,8 +72,10 @@
                                             <label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input name="publish" type="checkbox" class="flat" {{ old('publish') }}>
+                                                    <input name="publish" type="checkbox" class="flat" {{ old('publish', $beverages->publish) ? 'checked' : '' }}>
                                                     @if(old('publish') !== null)
+                                                        <span>{{ old('publish') ? 'Published😀' : 'Not Special' }}</span>
+                                                    @elseif($beverages->publish)
                                                         <span>Published😀</span>
                                                     @else
                                                         <span>Not Published</span>
@@ -85,9 +87,11 @@
                                             <label class="col-form-label col-md-3 col-sm-3 label-align">Special</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input name="check" type="checkbox" class="flat" {{ old('check') }}>
-                                                    @if(old('check'))
-                                                        <span>Special</span>
+                                                    <input name="check" type="checkbox" class="flat" {{ old('check', $beverages->check) ? 'checked' : '' }}>
+                                                    @if(old('check') !== null)
+                                                        <span>{{ old('check') ? 'Special😀' : 'Not Special' }}</span>
+                                                    @elseif($beverages->check)
+                                                        <span>Special😀</span>
                                                     @else
                                                         <span>Not Special</span>
                                                     @endif
@@ -99,8 +103,12 @@
                                             <div class="col-md-6 col-sm-6 ">
                                                 <input type="file" id="image" name="image" required="required" class="form-control">
                                                 <p>{{ $beverages->image }}</p>
-                                                <img src="{{ 'assets/images/' . $beverages->image }}" alt="Image"
-                                                class="tm-list-item-img">
+                                                {{ old('image') }}
+                                                @if($beverages->image)
+                                                
+                                                <img src="{{ asset('assets/images/' . $beverages->image) }}" alt="Old Image" 
+                                                class="fa-file-image">
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="item form-group">
@@ -109,7 +117,7 @@
                                                 <select class="form-control" name="category_id" id="">
                                                     <option value=" " >Select Category</option>
                                                     @foreach($cat_bev as $category)
-                                                        <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
+                                                        <option value="{{$category->id}}" {{ old('category_id', $beverages->category_id) == $category->id ? 'selected' : '' }}>{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

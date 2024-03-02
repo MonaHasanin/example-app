@@ -70,13 +70,20 @@ class BeveragesController extends Controller
         'category_id' => 'required'
     ]);
 
+    $oldImage = Beverages::findOrFail($id)->image;
+    $oldCheck = Beverages::findOrFail($id)->check;
+    $oldPublish = Beverages::findOrFail($id)->publish;
     $data['publish'] = isset($request['publish']) ? 1 : 0;
     $data['check'] = isset($request['check']) ? 1 : 0;
 
     if ($request->hasFile('image')) {
         $file_name = $this->uploadFile($request->image, 'assets/images');
         $data['image'] = $file_name;
-    }
+     } else {
+            // incase there is no new image upload old one
+            $data['image'] = $oldImage;
+        }
+    
 
     Beverages::findOrFail($id)->update($data);
 
