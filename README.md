@@ -64,3 +64,48 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+---------
+## About this Project and features
+ ## php-laravel-bootstrap-waveCafe
+Description
+
+#operatians using php laravel and bootstrap
+Features
+
+    Admin Panel:
+        Insert User & List All Users
+        Insert Category & List All Categories
+        Insert Beverage & List All Beverages
+
+    Home Page (Drink Menu):
+        List Beverages According to Category Selected
+
+Admin Panel
+
+    User Management:
+        Registration
+        Login
+        Logout
+        Edit User
+        Delete User
+
+    Category Management:
+        Edit Category
+        Delete Category
+
+    Beverage Management:
+        Edit Beverage
+        Delete Beverage
+
+    Additional Features:
+        List Special Items
+
+Technologies Used
+
+  Frontend: Bootstrap
+  Backend: PHP-Laravel
+  Database: MySQL
+  Mail: mailhug
