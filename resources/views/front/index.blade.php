@@ -78,8 +78,7 @@ https://www.tooplate.com/view/2121-wave-cafe
                                             <img src="{{ 'assets/images/' . $beverage->image }}" alt="Image"
                                                 class="tm-list-item-img">
                                             <div class="tm-black-bg tm-list-item-text">
-                                                <h3 class="tm-list-item-name">{{ $beverage->title }}<span
-                                                        class="tm-list-item-price">${{ $beverage->price }}</span></h3>
+                                                <h3 class="tm-list-item-name">{{ $beverage->title }} </h3>
                                                 <p class="tm-list-item-description">{{ $beverage->content }}</p>
                                             </div>
                                         </div>
