@@ -82,7 +82,8 @@ Features
 
         create registration and login system for admins with email verification.
         
-login/register by login for admins only to go to admin panel and if it's user they go to main web 
+login/register -By Verifying the email address in thier mail- by login for admins only to go to admin panel and if it's user they go to main web.
+
 show the full name of the user at the top right and top left of the admin panel on all pages.
 
     Home Page (Drink Menu):
