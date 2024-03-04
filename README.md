@@ -87,7 +87,9 @@ show the full name of the user at the top right and top left of the admin panel 
 
     Home Page (Drink Menu):
         List Beverages According to Category Selected
+        Multi login systym using Middlware- user login goes to main web and unuthorized to go to admin panel - admin login - Role Management (Admin) Middleware to go to admin panel
 
+        
 Admin Panel
 
     User Management:
@@ -96,9 +98,10 @@ Admin Panel
         Logout
         Edit User
         directly add user from addUser
-       // softDelete for User
+       // softDelete for User in the controller //didn't make a route for it becaue it's not required to make
 
     Category Management:
+        Add new Category
         Edit Category
         if we press delete we can remove the category only if it has no data in the beverages table
         how categories list on categories page
